@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">SQList</string>
+    <string name="titulo_tarefa">Nome da tarefa</string>
+    <string name="desc_tarefa">Descrição</string>
+    <string name="btn_tarefa">Cadastrar tarefa</string>
 </resources>
