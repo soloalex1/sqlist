@@ -3,4 +3,9 @@
     <string name="titulo_tarefa">Nome da tarefa</string>
     <string name="desc_tarefa">Descrição</string>
     <string name="btn_tarefa">Cadastrar tarefa</string>
+    <string name="btn_salvar">Salvar tarefa</string>
+    <string name="btn_deletar">Excluir tarefa</string>
+    <string name="lista_tarefas">Tarefas</string>
+    <string name="lista_status">Status</string>
+    <string name="tarefa_concluida">Concluída?</string>
 </resources>

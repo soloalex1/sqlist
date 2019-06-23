@@ -1,8 +1,11 @@
 package com.example.sqlist;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
@@ -19,14 +22,27 @@ public class SearchActivity extends Activity {
         setContentView(R.layout.activity_list);        
 
         ControllerDB crud = new ControllerDB(getBaseContext());
-        Cursor cursor = crud.carregarTarefas();
+        final Cursor cursor = crud.carregarTarefas();
 
-        String[] fieldNames = new String[] { CreateDB.getTitulo(), CreateDB.getStatus() };
+        String[] fieldNames = new String[] { CreateDB.getID(), CreateDB.getTitulo(), CreateDB.getStatus() };
         int[] idViews = new int[] { R.id.nomeTarefa, R.id.statusTarefa };
         
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(getBaseContext(), R.layout.activity_list, cursor, fieldNames, idViews, 0);
         
         listaTarefas = findViewById(R.id.listaTarefas);
-        listaTarefas.setAdapter(adapter); 
+        listaTarefas.setAdapter(adapter);
+        listaTarefas.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id){
+                String codigo;
+                cursor.moveToPosition(position);
+                codigo = cursor.getString(cursor.getColumnIndexOrThrow(CreateDB.getID()));
+                Intent i = new Intent(SearchActivity.this, EditActivity.class);
+                i.putExtra("codigo", codigo);
+                startActivity(i);
+                finish();
+            }
+        });
     }
 }

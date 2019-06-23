@@ -1,6 +1,7 @@
 package com.example.sqlist;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,7 +25,7 @@ public class InsertActivity extends Activity implements View.OnClickListener {
         tituloTarefa = findViewById(R.id.inputTitle);
         descTarefa = findViewById(R.id.inputDesc);
 
-        btnInsert = findViewById(R.id.btnTarefa);
+        btnInsert = findViewById(R.id.btnAlterarTarefa);
         btnInsert.setOnClickListener(this);
     }
 
@@ -44,5 +45,9 @@ public class InsertActivity extends Activity implements View.OnClickListener {
 
         // exibe o feedback por um Toast
         Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+
+        // vai pra lista de tarefas
+        Intent i = new Intent(InsertActivity.this, SearchActivity.class);
+        startActivity(i);
     }
 }

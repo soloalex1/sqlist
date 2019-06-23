@@ -52,4 +52,44 @@ public class ControllerDB {
         database.close();
         return cursor;
     }
+
+    public Cursor carregaDadoTarefa(int id){
+        Cursor cursor;
+        String[] fields = { createDB.getID(), createDB.getTitulo(), createDB.getDesc(), createDB.getStatus() };
+        database = createDB.getReadableDatabase();
+        cursor = database.query(createDB.getTabela(), fields, (createDB.getID() + "=" + id), null, null, null, null, null);
+
+        if(cursor != null){
+            cursor.moveToFirst();
+        }
+
+        database.close();
+        return cursor;
+    }
+
+    public void alteraTarefa(int id, String novoTitulo, String novaDesc, boolean status){
+        ContentValues values = new ContentValues();
+        database = createDB.getWritableDatabase();
+
+        int statusAux;
+
+        if(status == true){
+            statusAux = 1;
+        } else {
+            statusAux = 0;
+        }
+
+        values.put(createDB.getTitulo(), novoTitulo);
+        values.put(createDB.getDesc(), novaDesc);
+        values.put(createDB.getStatus(), statusAux);
+
+        database.update(createDB.getTabela(),  values, (createDB.getID() + "=" + id),null);
+        database.close();
+    }
+
+    public void deletarTarefa(int id){
+        database = createDB.getReadableDatabase();
+        database.delete(createDB.getTabela(), (createDB.getID() + "=" + id), null);
+        database.close();
+    }
 }

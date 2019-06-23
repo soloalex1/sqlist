@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class CreateDB extends SQLiteOpenHelper {
 
-    private static final String NOME_BANCO = "banco.db";
+    private static final String NOME_BANCO = "sqlist.db";
     private static final String TABELA = "tarefas";
     private static final String ID = "_id";
     private static final String TITULO = "titulo";
@@ -24,9 +24,6 @@ public class CreateDB extends SQLiteOpenHelper {
         super(context, NOME_BANCO, null, VERSAO);
     }
 
-
-
-
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(createQuery);
@@ -38,13 +35,7 @@ public class CreateDB extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-
     // Getters
-
-    public static String getNomeBanco() {
-        return NOME_BANCO;
-    }
-
     public static String getTabela() {
         return TABELA;
     }
