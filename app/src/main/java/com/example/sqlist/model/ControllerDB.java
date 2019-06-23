@@ -21,10 +21,10 @@ public class ControllerDB {
 
         database = createDB.getWritableDatabase();
         values = new ContentValues();
-        values.put(CreateDB.TITULO, titulo);
-        values.put(CreateDB.DESCRICAO, descricao);
+        values.put(CreateDB.getTitulo(), titulo);
+        values.put(CreateDB.getDesc(), descricao);
 
-        resultado = database.insert(CreateDB.TABELA, null, values);
+        resultado = database.insert(CreateDB.getTabela(), null, values);
         database.close();
 
         if(resultado == -1){
@@ -38,11 +38,11 @@ public class ControllerDB {
         Cursor cursor;
 
         // definindo campos a serem carregados e iniciando o banco
-        String[] fields = { createDB.ID, createDB.TITULO };
+        String[] fields = { createDB.getID(), createDB.getTitulo() };
         database = createDB.getReadableDatabase();
 
         // executando a consulta
-        cursor = database.query(createDB.TABELA, fields, null, null, null, null, null, null);
+        cursor = database.query(createDB.getTabela(), fields, null, null, null, null, null, null);
 
         if(cursor != null){
             cursor.moveToFirst();
@@ -52,5 +52,4 @@ public class ControllerDB {
         database.close();
         return cursor;
     }
-
 }

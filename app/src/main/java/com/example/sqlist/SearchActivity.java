@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.ListView;
-import android.widget.AdapterView;
 import android.widget.SimpleCursorAdapter;
 
 import com.example.sqlist.model.ControllerDB;
@@ -22,8 +21,8 @@ public class SearchActivity extends Activity {
         ControllerDB crud = new ControllerDB(getBaseContext());
         Cursor cursor = crud.carregarTarefas();
 
-        String[] fieldNames = new String[] { CreateDB.ID, CreateDB.TITULO };
-        int[] idViews = new int[] { R.id.idTarefa, R.id.nomeTarefa };
+        String[] fieldNames = new String[] { CreateDB.getTitulo(), CreateDB.getStatus() };
+        int[] idViews = new int[] { R.id.nomeTarefa, R.id.statusTarefa };
         
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(getBaseContext(), R.layout.activity_list, cursor, fieldNames, idViews, 0);
         
