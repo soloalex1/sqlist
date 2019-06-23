@@ -24,6 +24,6 @@ public class SearchActivity extends Activity {
         Cursor cursor = crud.carregarTarefas();
 
 //        String[] fieldNames = new String[] { CreateDB.ID, CreateDB.TITULO };
-        
+
     }
 }
