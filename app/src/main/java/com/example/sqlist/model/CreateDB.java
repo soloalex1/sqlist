@@ -14,11 +14,11 @@ public class CreateDB extends SQLiteOpenHelper {
     private static final String STATUS = "status";
     private static final int VERSAO = 1;
 
-    private static final String createQuery = "CREATE TABLE " + TABELA + "("
-            + ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + TITULO + " TEXT,"
-            + DESCRICAO + " TEXT,"
-            + STATUS + " INTEGER DEFAULT 0 )";
+    private static final String createQuery = "CREATE TABLE " + TABELA + " ("
+            + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + TITULO + " TEXT, "
+            + DESCRICAO + " TEXT, "
+            + STATUS + " INTEGER DEFAULT 0 );";
 
     public CreateDB(Context context) {
         super(context, NOME_BANCO, null, VERSAO);
