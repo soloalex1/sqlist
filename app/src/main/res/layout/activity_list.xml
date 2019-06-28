@@ -1,6 +1,5 @@
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/listaTarefas"
     android:layout_width="match_parent"
     android:layout_height="500dp"
     android:layout_marginLeft="30dp"
@@ -10,21 +9,30 @@
     android:columnCount="2"
     android:rowCount="2">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/nomeTarefa"
-        android:layout_width="250dp"
-        android:layout_height="30dp"
-        android:text="@string/lista_tarefas"
-        android:textSize="24sp"
-        app:fontFamily="monospace" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Lista de Tarefas"
+            android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/statusTarefa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/lista_status"
-        android:textSize="24sp"
-        app:fontFamily="monospace" />
+        <ListView
+            android:id="@+id/listaTarefas"
+            android:layout_width="match_parent"
+            android:layout_height="400dp">
 
-</GridLayout>
+        </ListView>
+
+        <Button
+            android:id="@+id/btnNovaTarefa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nova tarefa" />
+    </LinearLayout>
+</ScrollView>
